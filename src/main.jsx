@@ -8,7 +8,7 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 const colors = {
   green: {
     300: "#48BB78",
-    600: "#3D8361",
+    600: "#E6FFDA",
     900: "#162C26",
   },
   white: {
@@ -17,7 +17,7 @@ const colors = {
     900: "#D9D9D9",
   },
   black: {
-    300: "#3A4750",
+    300: "#413F42",
     600: "#303841",
     900: "#000000",
   },

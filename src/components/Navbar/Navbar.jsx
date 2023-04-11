@@ -14,7 +14,8 @@ const Navbar = () => {
   return (
     <div className="navbar-layout">
       <header>
-        <h3>Anahi Apartamentos</h3>
+        <a href="/">  <h3>Anahi Apartamentos</h3></a>
+
         <nav ref={navRef}>
           <a href="/#propiedades">Propiedades</a>
           <a href="/#empresa">Empresa</a>

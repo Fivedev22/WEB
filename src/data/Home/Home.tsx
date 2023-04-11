@@ -1,6 +1,6 @@
 import { IOpinions, IServices } from "../../types";
 
-export const Services: Array<IServices> = [
+export const services: Array<IServices> = [
   {
     image: "https://cdn-icons-png.flaticon.com/512/259/259970.png",
     title: "Wi-fi",
@@ -27,7 +27,7 @@ export const Services: Array<IServices> = [
   }
 ];
 
-export const Opinions: Array<IOpinions> = [
+export const opinions: Array<IOpinions> = [
   {
     author: "Martin",
     date: "23 de febrero",
