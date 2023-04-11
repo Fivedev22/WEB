@@ -1,8 +1,10 @@
 import React from 'react';
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, Tooltip } from "@chakra-ui/react";
 
 const WhatsApp = () => {
 	return <>
+		<a href="https://api.whatsapp.com/send?phone=543547662637" target='_blank'>
+		<Tooltip hasArrow label='Consultanos por disponibilidad!' padding={4} fontSize={'18px'} color={'#000'} bg='white.600' defaultIsOpen='true'>
 		<Box 
 			position={"fixed"} 
 			bottom={5} 
@@ -22,6 +24,10 @@ const WhatsApp = () => {
 				<path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
 			</svg>
 		</Box>
+		</Tooltip>
+		
+		</a>
+	
 	</>;
 };
 

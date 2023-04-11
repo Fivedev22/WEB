@@ -9,8 +9,7 @@ const Opinions = () => {
 	return <>
 	 <Box
         height={{ base: "100%", xl: "100vh" }}
-        display="flex"
-        alignItems="center"
+        display={'grid'} placeContent={'center'} 
         paddingY={8}
         paddingX={6}
         id="reseñas"
@@ -28,7 +27,7 @@ const Opinions = () => {
           <Text
             color="green.900"
             fontFamily="Domine" fontWeight={600}
-            fontSize={{ base: "26px", md: "42px" }}
+            fontSize={{ base: "26px", md: "32px" }}
           >
             ¡Nuestra experiencia con clientes!
           </Text>

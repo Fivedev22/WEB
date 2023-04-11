@@ -5,7 +5,7 @@ import { services } from "../../data/Home/Home";
 
 const Services = () => {
 	return <>
-		<Box id="servicios" as="section" height="100%" minHeight={"100vh"} paddingY={12} paddingX={6}>
+		<Box display={'grid'} placeContent={'center'} id="servicios" as="section" height="100%" minHeight={"100vh"} paddingY={12} paddingX={6}>
 			<Box
 				maxW="1440px"
 				margin="0 auto"
@@ -16,7 +16,7 @@ const Services = () => {
 					color="green.900"
 					fontFamily="Domine"
 					fontWeight={600}
-					fontSize={{ base: "26px", md: "42px" }}
+					fontSize={{ base: "26px", md: "32px" }}
 				>
 					Servicios
 				</Text>
@@ -36,10 +36,10 @@ const Services = () => {
 							borderRadius={"lg"}
 						>
 							<Image
-								boxSize={{ base: "50px", md: "120px" }}
+								boxSize={{ base: "50px", md: "80px" }}
 								src={service.image}
 							/>
-							<Text fontSize={{ base: "16px", md: "26px" }} color={"black.300"} fontWeight={600}>
+							<Text fontSize={{ base: "16px", md: "24px" }} color={"black.300"} fontWeight={600}>
 								{service.title}
 							</Text>
 						</GridItem>

@@ -25,7 +25,7 @@ const Contact = () => {
 				textAlign={{ base: "left", md: "center" }}
 				paddingY={12}
 			>
-				<Text fontSize={{ base: "26px", md: "42px" }} color={"green.900"} fontFamily="Domine" fontWeight={600}>
+				<Text fontSize={{ base: "26px", md: "32px" }} color={"green.900"} fontFamily="Domine" fontWeight={600}>
 					Contactanos
 				</Text>
 				<Box display={"flex"} flexDirection={{ base: "column", md: "row" }} justifyContent={"space-between"} gap={8} paddingY={8}>

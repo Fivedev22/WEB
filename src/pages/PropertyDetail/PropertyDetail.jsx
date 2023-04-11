@@ -72,6 +72,7 @@ const PropertyDetail = () => {
 									border={"1px solid #000"}
 									onClick={backImage}
 								>
+
 									<ArrowLeft />
 								</Button>
 								<Button
@@ -118,7 +119,15 @@ const PropertyDetail = () => {
 
 						</Box>
 						<Box width={"100%"} paddingY={2}>
-							<Button width={"100%"} colorScheme='green'>Consultar disponibilidad</Button>
+
+							<a href="https://api.whatsapp.com/send?phone=543547662637">
+								<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
+									<WhatsAppBtn />
+									<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
+
+								</Button>
+							</a>
+
 						</Box>
 					</Box>
 
@@ -128,7 +137,7 @@ const PropertyDetail = () => {
 							{oneProperty.name}
 						</Text>
 
-						<Text textAlign={"left"} paddingY={6}>
+						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>
 							Níspero cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
 						</Text>
 					</Box>
@@ -159,6 +168,15 @@ const ArrowLeft = () => {
 			<line x1="5" y1="12" x2="19" y2="12" />
 			<line x1="5" y1="12" x2="11" y2="18" />
 			<line x1="5" y1="12" x2="11" y2="6" />
+		</svg>
+	)
+}
+const WhatsAppBtn = () => {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+			<path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+			<path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
 		</svg>
 	)
 }
