@@ -17,17 +17,12 @@ const Navbar = () => {
         <a href="/">  <h3>Anahi Apartamentos</h3></a>
 
         <nav ref={navRef}>
-          <a href="/#propiedades">Propiedades</a>
+          <a href="/#propiedades" >Propiedades</a>
           <a href="/#empresa">Empresa</a>
           <a href="/#servicios">Servicios</a>
           <a href="/#reseñas">Reseñas</a>
           <a href="/#contacto">Contacto</a>
 
-
-
-          {/* <a href="/#">Alquileres</a>
-          <a href="/#">Empresa</a>
-          <a href="/#">Contacto</a> */}
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

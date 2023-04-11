@@ -69,6 +69,7 @@ nav {
 }
 
 @media only screen and (max-width: 768px) {
+ 
   header .nav-btn {
     visibility: visible;
     opacity: 1;
@@ -85,8 +86,11 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    background-color: var(--mainColor);
+    background-color: var(--mainColorLight);
     transition: 1s;
+    z-index: 100000 !important;
+    overflow: hidden;
+    
   }
 
   header .responsive_nav {

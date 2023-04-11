@@ -10,7 +10,7 @@ const Footer = () => {
         left="0"
         width="100%"
         bgColor="#162C26"
-        zIndex="999"
+        zIndex="10"
       >
         <Box
           position="relative"

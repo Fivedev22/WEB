@@ -23,7 +23,6 @@ const Plans = () => {
 	return <>
 		<Box
 			backgroundAttachment="fixed"
-			bgColor={"red.300"}
 			bgImage="url('https://images.unsplash.com/photo-1658143289468-6c5ecd2c39e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')"
 			bgSize="cover"
 			bgRepeat="no-repeat"

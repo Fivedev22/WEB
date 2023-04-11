@@ -3,10 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Text, Box, Button, Image, Divider } from '@chakra-ui/react'
 // files
 import data from '../../data/db.json'
-import { useRef } from 'react';
-import { useEffect } from 'react';
-import { useCallback } from 'react';
-
 
 const PropertyDetail = () => {
 
@@ -32,7 +28,6 @@ const PropertyDetail = () => {
 
 	const nextImage = () => {
 		selectNewImage(selectedIndex, images, false)
-
 
 	}
 	const backImage = () => {
@@ -141,8 +136,6 @@ const PropertyDetail = () => {
 							Níspero cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
 						</Text>
 					</Box>
-
-
 				</Box >;
 			</Box>
 		</Box>
