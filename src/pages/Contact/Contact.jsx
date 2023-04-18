@@ -38,9 +38,9 @@ const Contact = () => {
 
 					<Box width={{ base: "100%", md: "650px" }} display={"flex"} flexDirection={"column"} justifyContent={"space-around"} gap={6}>
 						<Box>
-							<Text fontSize={"26px"} paddingY={6}>¿COMO LLEGAR?</Text>
+							<Text fontSize={"26px"} paddingY={6}>¿Como Llegar?</Text>
 							<Text fontSize={"20px"}>
-								Se llega a través de Santa Rosa de Calamuchita tomando la Ruta Provincial 228 o también conocida como Acceso a Yacanto de Calamuchita. Hasta llegar al camino (bifurcación) que lleva al río El Durazno y en la primera bifurcación en vez de seguir hacia el durazno se toma el camino que lleva al Embalse Cerro pelado.
+							Si estás planeando un viaje a Villa Parque Siquiman y necesitas saber cómo llegar, te recomendamos tomar la Ruta Nacional 38 hacia el norte desde la ciudad de Córdoba. Luego, desvíate a la derecha en la Ruta Provincial E-55 y continúa por esta carretera hasta llegar a tu destino. Si te encuentras en otra ubicación, utiliza un mapa o una aplicación de GPS para encontrar la ruta más adecuada. Además, no dudes en buscar información adicional en línea o en alguna oficina de turismo en la zona. ¡Te esperamos!
 							</Text>
 						</Box>
 						<Box>

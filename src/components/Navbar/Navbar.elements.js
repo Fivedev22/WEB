@@ -53,7 +53,7 @@ export const MenuItem = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 400;
   text-decoration: none;
   transition: .3s all ease-in;

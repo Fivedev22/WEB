@@ -61,11 +61,11 @@ const Opinions = () => {
                   textAlign="center"
                   key={idx}
                 >
-                  <Text fontSize={{ base: "22px", md: "32px" }}>
+                  <Text fontSize={{ base: "26px", md: "32px" }}  fontWeight={'500'} textTransform={'capitalize'}>
                     {op.author}
                   </Text>
                   <Text fontSize={{ base: "18px", md: "20px" }}>{op.date}</Text>
-                  <Text fontSize={{ base: "18px", md: "24px" }}>
+                  <Text fontSize={{ base: "20px", md: "24px" }}>
                     {op.comment}
                   </Text>
                 </Box>

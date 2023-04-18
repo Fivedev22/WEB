@@ -12,7 +12,7 @@ const Propiedades = () => {
 			surface: "50m2"
 		},
 		{
-			image: "https://images.unsplash.com/photo-1497870556705-2ee687d37bba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
+			image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
 			title: "Algarrobo",
 			descripton: "Apta para 2/4 personas",
 			surface: "50m2"
@@ -45,11 +45,11 @@ const Propiedades = () => {
 							properties.map((dpto) => (
 								<Card width={{ base: "100%", sm: "250px", lg: "100%" }}>
 									<Box>
-										<Image width={"100%"} objectFit={"cover"} height={"250px"} src={dpto.images[2]} alt='Dan Abramov' />
+										<Image width={"100%"} objectFit={"cover"} height={"250px"} src={dpto.images[0]} alt='Dan Abramov' />
 									</Box>
 									<Box paddingY={6} display={"grid"} placeItems={"center"}>
 										<Box display={"grid"} gap={6}>
-											<Text fontSize="24px" fontWeight={600} fontFamily="Poppins">{dpto.name}</Text>
+											<Text fontSize="24px" textTransform={'capitalize'} fontWeight={600} fontFamily="Poppins" textAlign={"center"}>{dpto.name}</Text>
 											<Box display={"flex"} gap={8} justifyContent={"space-around"}>
 												<Box display={"flex"} gap={2}>
 													<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">

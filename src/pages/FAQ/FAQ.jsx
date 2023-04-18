@@ -44,13 +44,13 @@ const FAQ = () => {
 					fontSize={{ base: "26px", md: "32px" }} paddingY={6} color={"black.300"}>
 					Preguntas Frecuentes
 				</Text>
-				<Accordion allowToggle width={"80%"} margin={"0 auto"}>
+				<Accordion allowToggle width={{base:"100%", md: '80%'}} margin={"0 auto"}>
 					{
 						Questions.map((question) => (
 							<AccordionItem>
 								<h2>
 									<AccordionButton>
-										<Box as="span" flex='1' textAlign='left' fontSize={'xl'}>
+										<Box as="span" flex='1' textAlign='left' fontSize={'xl'} textTransform={'capitalize'}>
 											{question.question}
 										</Box>
 										<AccordionIcon />

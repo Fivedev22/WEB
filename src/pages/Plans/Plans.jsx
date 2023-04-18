@@ -38,11 +38,11 @@ const Plans = () => {
 				<Box width="80%" margin={"0 auto"} borderRadius="9px" bgColor={"rgba(255, 255, 255, 0.8 )"} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"space-around"} paddingY={8} >
 					{
 						PlansArray.map((plan, idx) => (
-							<Box key={idx} width={"80%"} display={"flex"} flexDirection={"row-reverse"} alignItems={"center"} justifyContent={"space-between"} padding={6} gap={4} borderBottom={"1px solid #BDCDD6"}>
-								<Image width={"80px"} borderRadius={"9px"} src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" />
+							<Box key={idx} width={"80%"} display={"flex"} flexDirection={{ base: "column-reverse", md: "row-reverse" }} alignItems={"center"} justifyContent={"space-between"} padding={6} gap={4} borderBottom={"1px solid #BDCDD6"}>
+								<Image width={"80px"} borderRadius={"md"} src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" />
 								<Box textAlign={"left"}>
-									<Text fontSize={{ base: "20px", md: "32px" }} fontFamily={"Poppins"} fontWeight={600} color={"#474E68"}>{plan.title}</Text>
-									<Text fontSize={{ base: "18px", md: "22px" }} fontFamily={"Poppins"} color={"#787A91"}>{plan.text}</Text>
+									<Text fontSize={{ base: "20px", md: "32px" }} fontFamily={"Poppins"} fontWeight={600} textAlign={{ base: "center", md: "left" }} color={"#474E68"}>{plan.title}</Text>
+									<Text fontSize={{ base: "18px", md: "22px" }} fontFamily={"Poppins"} color={"#787A91"} textAlign={{ base: "center", md: "left" }}   > {plan.text}</Text>
 
 								</Box>
 							</Box>
