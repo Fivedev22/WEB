@@ -5,7 +5,7 @@ const WhatsApp = () => {
 	return <>
 
 		<Box zIndex={"100"}>
-			<a href="https://api.whatsapp.com/send?phone=3516538808" target='_blank'>
+			<a href="https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20hacer%20una%20reserva" target='_blank'>
 				<Tooltip hasArrow label='Consultanos por disponibilidad!' position={"relative"} top={0} left={-2} padding={2} fontSize={'18px'} color={'#000'} bg='white.600'>
 					<Box
 						position={"fixed"}

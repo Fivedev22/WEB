@@ -6,8 +6,8 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <Box width="100%" height="100%">
-      <Navbar />
+    <Box width="100%" height="100%" bgColor={"transparent"}>
+     <Navbar />
       <Box
         // maxWidth="1440px"
         height="100%"

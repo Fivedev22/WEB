@@ -38,12 +38,12 @@ const PropertyDetail = () => {
 		selectNewImage(selectedIndex, images,)
 	}
 
-	useEffect(()=>{
-		container.current.scrollIntoView({ behavior: 'smooth' });
+	useEffect(() => {
+		container.current.scrollIntoView({ block: 'start' });
 	}, [])
 
 	return <>
-		<Box height="100%" minHeight={"100vh"} paddingY={0} paddingX={0}>
+		<Box height="100%" minHeight={"100vh"} position={'relative'} top={'80px'} left={0}>
 			<Box
 				maxW="1440px"
 				margin="0 auto"
@@ -65,7 +65,7 @@ const PropertyDetail = () => {
 							<Box>
 								<Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={selectedImage} />
 							</Box>
-							<Box  position={"absolute"} top={'0'}  width={"100%"} height={"100%"}  display={"flex"} alignItems={"center"} justifyContent={"space-between"} padding={2}>
+							<Box position={"absolute"} top={'0'} width={"100%"} height={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"} padding={2}>
 								<Button
 									width={"55px"}
 									height={"55px"}
@@ -96,7 +96,7 @@ const PropertyDetail = () => {
 
 						</Box>
 						<Box>
-							<Box  display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
+							<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
 								<Box display={"grid"} placeItems={"center"} >
 									<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
 										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -126,13 +126,12 @@ const PropertyDetail = () => {
 								</Box>
 
 							</Box>
-							<Box  width={"100%"} paddingY={2}>
+							<Box width={"100%"} paddingY={2}>
 
-								<a href="https://api.whatsapp.com/send?phone=543547662637">
+								<a href="https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20hacer%20una%20reserva">
 									<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
 										<WhatsAppBtn />
 										<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
-
 									</Button>
 								</a>
 
@@ -160,14 +159,14 @@ const PropertyDetail = () => {
 						>
 							{services.map((service, idx) => (
 								<GridItem
-									width={{base:"120px", md: "250px"}}
+									width={{ base: "120px", md: "250px" }}
 									key={idx}
 									padding={5}
 									placeItems="center"
 									gap={4}
 									borderRadius={"lg"}
 									display="flex"
-									flexDirection={{base:"column", md: "row"}}
+									flexDirection={{ base: "column", md: "row" }}
 									border={"1px solid #ccc"}
 								>
 									<Image

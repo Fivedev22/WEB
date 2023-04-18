@@ -3,25 +3,34 @@ import { Link } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import { useRef } from "react";
 
-import "./Navbar.css";
+
 import { useState } from "react";
 import { IconLogo, IconLogoMobile, Menu, MenuItem, MenuItemLink, NavbarContainer, NavbarWrapper } from "./Navbar.elements";
+import { useEffect } from "react";
 
 const Navbar = () => {
-  const navRef = useRef();
   const [show, setShow] = useState(false)
+  const [scroll, setScroll] = useState(false)
 
   const showNavbar = () => {
-    // navRef.current.classList.toggle("responsive_nav");
     setShow(!show)
   };
 
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    scrollY > 100 ? setScroll(true) : setScroll(false) 
+  }
+
 
   return (
-    <NavbarContainer>
+    <NavbarContainer show={scroll}>
       <NavbarWrapper>
         <a href="/">
-          <IconLogo>Anahi Apartamentos</IconLogo>
+          <IconLogo show={scroll}>Anahi Apartamentos</IconLogo>
         </a>
 
         <IconLogoMobile>

@@ -3,22 +3,29 @@ import styled from "styled-components";
 export const NavbarContainer = styled.div`
   width: 100%;
   height: 80px;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 999;
-  background-color: #48BB78;;
-  border-bottom: 1px solid #000;
+  left: 0;
+  padding: 1rem;
+  z-index: 9999;
+  background-color: ${ ({show}) => (show ? "rgba(0,0,0,0.8)" : "transparent") };
+
+
+  @media screen and (max-width: 960px) { 
+    background-color: #48BB78;
+  }
+
 `;
 export const NavbarWrapper = styled.div`
   margin: auto;
   width: 100%;
-  max-width: 990px;
+  max-width: 1440px;
   height: 100%;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 1rem;
+ 
 `;
 export const IconLogo = styled.div`
   display: flex;
@@ -27,7 +34,15 @@ export const IconLogo = styled.div`
   align-items: center;
   font-size: 1.5rem;
   font-family: 'Poppins';
-  color: #fff;
+  color: ${ ({show}) => (show ? "#FFF" : "#48BB78") };
+
+  &:hover{
+    color: "#48BB78";
+  }
+
+  @media screen and (max-width: 960px) { 
+   color: #fff;
+  }
 `;
 export const Menu = styled.ul`
   height: 100%;
@@ -58,9 +73,7 @@ export const MenuItem = styled.a`
   text-decoration: none;
   transition: .3s all ease-in;
 
-  &:hover{
-    background-color: rgba(0,0,0,0.3);
-  }
+ 
 
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -73,7 +86,7 @@ export const MenuItemLink = styled.li`
   color: #fafafa;
 
   &:hover{
-    color: #fff;
+    color: #48BB78;
   }
   
 `;

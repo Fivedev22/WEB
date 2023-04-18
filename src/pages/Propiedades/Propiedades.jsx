@@ -29,7 +29,7 @@ const Propiedades = () => {
 
 
 	return <>
-		<Box id="propiedades" as="section" height={"100%"} minHeight={"100vh"} paddingY={4} display={'grid'} placeContent={'center'}>
+		<Box id="propiedades" as="section" position={'relative'} top={0} left={0} height={"100%"} minHeight={"100vh"} paddingY={4} display={'grid'} placeContent={'center'}>
 			<Box maxW="1440px"
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
