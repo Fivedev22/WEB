@@ -45,6 +45,9 @@ nav a {
   font-size: 18px;
   font-family: Poppins;
 }
+nav a:focus  header .responsive_nav {
+  transform: translateX(0);
+} 
 
 nav a:hover {
   color: var(--mainColor);

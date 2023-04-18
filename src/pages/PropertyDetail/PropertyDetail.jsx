@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Text, Box, Button, Image, Divider } from '@chakra-ui/react'
+import { Text, Box, Button, Image, Grid, GridItem, } from '@chakra-ui/react'
 // files
 import data from '../../data/db.json'
+import { services } from '../../data/Home/Home';
+import { useEffect } from 'react';
+import { useRef } from 'react';
 
 const PropertyDetail = () => {
 
+	const container = useRef(null)
 	const { key } = useParams();
 	const { properties } = data
 
@@ -34,6 +38,9 @@ const PropertyDetail = () => {
 		selectNewImage(selectedIndex, images,)
 	}
 
+	useEffect(()=>{
+		container.current.scrollIntoView({ behavior: 'smooth' });
+	}, [])
 
 	return <>
 		<Box height="100%" minHeight={"100vh"} paddingY={0} paddingX={0}>
@@ -42,6 +49,7 @@ const PropertyDetail = () => {
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
 				paddingY={8}
+				ref={container}
 			>
 				<Box
 					width={"100%"}
@@ -52,18 +60,19 @@ const PropertyDetail = () => {
 					padding={2}
 
 				>
-					<Box display={"grid"} gap={6} padding={{ base: 0, sm: 6 }}  >
+					<Box display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
 						<Box position={"relative"}  >
 							<Box>
 								<Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={selectedImage} />
 							</Box>
-							<Box position={"absolute"} top={0} zIndex={20} width={"100%"} height={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"} padding={2}>
+							<Box  position={"absolute"} top={'0'}  width={"100%"} height={"100%"}  display={"flex"} alignItems={"center"} justifyContent={"space-between"} padding={2}>
 								<Button
 									width={"55px"}
 									height={"55px"}
 									borderRadius={"full"}
 									outline={"none"}
 									bg={"rgba(0,0,0,0.2)"}
+									_focus={{ bgColor: 'green.300' }}
 									border={"1px solid #000"}
 									onClick={backImage}
 								>
@@ -77,56 +86,63 @@ const PropertyDetail = () => {
 									outline={"none"}
 									bg={"rgba(0,0,0,0.2)"}
 									border={"1px solid #000"}
+									_focus={{ bgColor: 'green.300' }}
 									onClick={nextImage}
 								>
 									<ArrowRight />
 								</Button>
 							</Box>
+
+
 						</Box>
-						<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} paddingX={4}>
-							<Box display={"grid"} placeItems={"center"} >
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-									<path d="M5 4h14a1 1 0 0 1 1 1v5a1 1 0 0 1 -1 1h-7a1 1 0 0 0 -1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1" />
-									<line x1="4" y1="8" x2="6" y2="8" />
-									<line x1="4" y1="12" x2="7" y2="12" />
-									<line x1="4" y1="16" x2="6" y2="16" />
-									<line x1="8" y1="4" x2="8" y2="6" />
-									<polyline points="12 4 12 7 " />
-									<polyline points="16 4 16 6 " />
-								</svg>
-								<Text>
-									{oneProperty.squareMeter}m2
-								</Text>
+						<Box>
+							<Box  display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
+								<Box display={"grid"} placeItems={"center"} >
+									<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<path d="M5 4h14a1 1 0 0 1 1 1v5a1 1 0 0 1 -1 1h-7a1 1 0 0 0 -1 1v7a1 1 0 0 1 -1 1h-5a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1" />
+										<line x1="4" y1="8" x2="6" y2="8" />
+										<line x1="4" y1="12" x2="7" y2="12" />
+										<line x1="4" y1="16" x2="6" y2="16" />
+										<line x1="8" y1="4" x2="8" y2="6" />
+										<polyline points="12 4 12 7 " />
+										<polyline points="16 4 16 6 " />
+									</svg>
+									<Text>
+										{oneProperty.squareMeter}m2
+									</Text>
+								</Box>
+								<Box display={"grid"} placeItems={"center"}>
+									<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
+										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+										<circle cx="9" cy="7" r="4" />
+										<path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+										<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+										<path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+									</svg>
+									<Text>
+										2/4 personas
+									</Text>
+								</Box>
+
 							</Box>
-							<Box display={"grid"} placeItems={"center"}>
-								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
-									<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-									<circle cx="9" cy="7" r="4" />
-									<path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-									<path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-								</svg>
-								<Text>
-									2/4 personas
-								</Text>
+							<Box  width={"100%"} paddingY={2}>
+
+								<a href="https://api.whatsapp.com/send?phone=543547662637">
+									<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
+										<WhatsAppBtn />
+										<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
+
+									</Button>
+								</a>
+
 							</Box>
-
 						</Box>
-						<Box width={"100%"} paddingY={2}>
 
-							<a href="https://api.whatsapp.com/send?phone=543547662637">
-								<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
-									<WhatsAppBtn />
-									<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
 
-								</Button>
-							</a>
-
-						</Box>
 					</Box>
 
-					<Box position={"relative"} width={{ base: "100%", sm: "80%" }} padding={6}>
+					<Box width={{ base: "100%", sm: "80%" }} padding={6} >
 						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}
 						>
 							{oneProperty.name}
@@ -135,6 +151,35 @@ const PropertyDetail = () => {
 						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>
 							Níspero cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
 						</Text>
+						<Text fontSize={"26px"} textAlign={"left"} color={"green.300"}>Servicios</Text>
+
+						<Grid
+							templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(2, 1fr)" }}
+							gap={6}
+							paddingY={6}
+						>
+							{services.map((service, idx) => (
+								<GridItem
+									width={{base:"120px", md: "250px"}}
+									key={idx}
+									padding={5}
+									placeItems="center"
+									gap={4}
+									borderRadius={"lg"}
+									display="flex"
+									flexDirection={{base:"column", md: "row"}}
+									border={"1px solid #ccc"}
+								>
+									<Image
+										boxSize={{ base: "30px", md: "40px" }}
+										src={service.image}
+									/>
+									<Text fontSize={{ base: "16px", md: "18px" }} color={"black.300"} textAlign={"center"} fontWeight={600}>
+										{service.title}
+									</Text>
+								</GridItem>
+							))}
+						</Grid>
 					</Box>
 				</Box >;
 			</Box>

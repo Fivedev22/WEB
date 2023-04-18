@@ -30,7 +30,7 @@ const Home = () => {
             color={"white.300"}
             textAlign={"center"}
             fontFamily="Poppins"
-            
+
           >
             Descubre el paraíso en nuestros departamentos en el corazón de la naturaleza
           </Text>
@@ -41,6 +41,7 @@ const Home = () => {
       <Empresa />
       <Services />
       <Opinions />
+      <FAQ />
       <Contact />
       <WhatsApp />
     </>

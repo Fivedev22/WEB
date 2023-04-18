@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import React from "react";
 
 const Footer = () => {
@@ -19,12 +19,15 @@ const Footer = () => {
           as="footer"
           maxWidth="1440px"
           margin="0 auto"
-          display="flex"
-          flexDirection={{ base: "column", md: "row-reverse" }}
+          display={'grid'}
           color="white"
-          justifyContent="space-between"
-          padding="10px 2rem"
+          justifyContent="center"
+          gap={6}
+          padding={6}
         >
+          <Box>
+            <Text fontSize={{base:"22px" , md: "32px"}}>Seguinos en nuestras redes!</Text>
+          </Box>
           <Box
             display="flex"
             justifyContent="center"
@@ -33,8 +36,8 @@ const Footer = () => {
             padding={2}
           >
             <Button
-              width="55px"
-              height="55px"
+             width={{base: '65px', md: "85px"}}
+             height={{base: '65px', md: "85px"}}
               _hover={{ backgroundColor: "#48BB78" }}
               backgroundColor="transparent"
               border="1px solid #fff"
@@ -60,8 +63,8 @@ const Footer = () => {
               </svg>
             </Button>
             <Button
-              width="55px"
-              height="55px"
+              width={{base: '65px', md: "85px"}}
+              height={{base: '65px', md: "85px"}}
               _hover={{ backgroundColor: "#48BB78",  }}
               backgroundColor="transparent"
               border="1px solid #fff"
@@ -85,14 +88,7 @@ const Footer = () => {
               </svg>
             </Button>
           </Box>
-          <Box display="flex" justifyContent="center" gap="10px" padding={2}>
-            <p>
-              Mas info <br /> y reservas
-            </p>
-            <p>
-              +54 9 3541 127523 <br /> anahiapartamentos@gmail.com
-            </p>
-          </Box>
+          
         </Box>
       </Box>
     </>
