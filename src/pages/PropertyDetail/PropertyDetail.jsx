@@ -1,19 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Text, Box, Button, Image, Grid, GridItem, } from '@chakra-ui/react'
 // files
 import data from '../../data/db.json'
 import { services } from '../../data/Home/Home';
-import { useEffect } from 'react';
-import { useRef } from 'react';
+
 
 const PropertyDetail = () => {
-
-	const container = useRef(null)
 	const { key } = useParams();
 	const { properties } = data
-
-
 	const oneProperty = properties.find(
 		(property) => property.ref == String(`${key}`)
 	);
@@ -21,6 +16,11 @@ const PropertyDetail = () => {
 	const [images, setImages] = useState(oneProperty.images)
 	const [selectedIndex, setSelectedIdex] = useState(0)
 	const [selectedImage, setSelectedImage] = useState(images[0])
+	const container = useRef(null)
+
+
+	const IDproperty = `*REF*:${oneProperty.ref}`
+	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
 	const selectNewImage = (index, img, next = true) => {
 
@@ -59,9 +59,11 @@ const PropertyDetail = () => {
 					overflow={"hidden"}
 					padding={2}
 
+
 				>
-					<Box display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
-						<Box position={"relative"}  >
+					<Box as='section' display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
+						{/* CONTAINER SLIDER IMAGES AND CONTROLLERS */}
+						<Box as='header' position={"relative"}>
 							<Box>
 								<Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={selectedImage} />
 							</Box>
@@ -92,10 +94,9 @@ const PropertyDetail = () => {
 									<ArrowRight />
 								</Button>
 							</Box>
-
-
 						</Box>
-						<Box>
+						{/* CONTAINER INFORMATION OF APARTAMENT */}
+						<Box as='footer' >
 							<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
 								<Box display={"grid"} placeItems={"center"} >
 									<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -112,7 +113,7 @@ const PropertyDetail = () => {
 										{oneProperty.squareMeter}m2
 									</Text>
 								</Box>
-								<Box display={"grid"} placeItems={"center"}>
+								<Box display={"grid"} placeItems={"center"} >
 									<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#597e8d" fill="none" stroke-linecap="round" stroke-linejoin="round">
 										<path stroke="none" d="M0 0h24v24H0z" fill="none" />
 										<circle cx="9" cy="7" r="4" />
@@ -121,14 +122,15 @@ const PropertyDetail = () => {
 										<path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
 									</svg>
 									<Text>
-										2/4 personas
+										{oneProperty.roomsNumber}
 									</Text>
 								</Box>
-
 							</Box>
-							<Box width={"100%"} paddingY={2}>
 
-								<a href="https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20hacer%20una%20reserva">
+							{/* CONTAINER BUTTON WHATSAPP */}
+							<Box as='section' width={"100%"} paddingY={2} >
+
+								<a href={LinkWSP}>
 									<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
 										<WhatsAppBtn />
 										<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
@@ -137,21 +139,17 @@ const PropertyDetail = () => {
 
 							</Box>
 						</Box>
-
-
 					</Box>
 
-					<Box width={{ base: "100%", sm: "80%" }} padding={6} >
-						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}
-						>
-							{oneProperty.name}
+					<Box as='section' width={{ base: "100%", sm: "80%" }} padding={6} >
+						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}>{oneProperty.name}
 						</Text>
 
 						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>
 							Níspero cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
 						</Text>
 						<Text fontSize={"26px"} textAlign={"left"} color={"green.300"}>Servicios</Text>
-
+						{/* CONTAINER GRID SERVICES */}
 						<Grid
 							templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(2, 1fr)" }}
 							gap={6}
@@ -183,7 +181,6 @@ const PropertyDetail = () => {
 				</Box >;
 			</Box>
 		</Box>
-
 	</>
 };
 
@@ -197,7 +194,6 @@ const ArrowRight = () => {
 		</svg>
 	)
 }
-
 const ArrowLeft = () => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

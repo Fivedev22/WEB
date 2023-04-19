@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    scrollY > 100 ? setScroll(true) : setScroll(false) 
+    scrollY > 160 ? setScroll(true) : setScroll(false) 
   }
 
 
@@ -46,7 +46,7 @@ const Navbar = () => {
           </MenuItem>
           <MenuItem href="/#empresa" onClick={showNavbar}>
             <MenuItemLink>
-              Empresa
+              Nosotros
             </MenuItemLink>
           </MenuItem>
           <MenuItem href="/#servicios" onClick={showNavbar}>

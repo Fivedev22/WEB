@@ -1,4 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
+import './Home.css'
 
 // components
 import WhatsApp from "../../components/WhatsApp/WhatsApp";
@@ -10,19 +11,8 @@ import { Navbar } from "../../components/Navbar";
 const Home = () => {
   return (
     <>
-      <Box
-        position="relative"
-        top={0}
-        left={0}
-        bgImage={`url('https://images.unsplash.com/photo-1564657619769-5089a5877f1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80')`}
-        backgroundSize="cover"
-        width={'100%'}
-        height={"100vh"}
-
-      >
-
+      <main className="zoom-bg">
         <Box
-
           position="absolute"
           top={0}
           bottom={0}
@@ -47,7 +37,7 @@ const Home = () => {
           </Box>
 
         </Box>
-      </Box>
+      </main>
       <Propiedades />
       <Plans />
       <Empresa />
