@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Text, Box, Button, Image, Grid, GridItem, } from '@chakra-ui/react'
+import { Text, Box, Button} from '@chakra-ui/react'
 // files
 import data from '../../data/db.json'
 import { services } from '../../data/Home/Home';
+// components
+import Carrousel from './components/Carrousel';
+import ServicesProperty from './components/ServicesProperty';
 
 
 const PropertyDetail = () => {
@@ -14,29 +17,11 @@ const PropertyDetail = () => {
 	);
 
 	const [images, setImages] = useState(oneProperty.images)
-	const [selectedIndex, setSelectedIdex] = useState(0)
-	const [selectedImage, setSelectedImage] = useState(images[0])
 	const container = useRef(null)
-
 
 	const IDproperty = `*REF*:${oneProperty.ref}`
 	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
-	const selectNewImage = (index, img, next = true) => {
-
-		const condition = next ? selectedIndex < img.length - 1 : selectedIndex > 0;
-		const nextIndex = next ? (condition ? selectedIndex + 1 : 0) : condition ? selectedIndex - 1 : img.length - 1;
-		setSelectedImage(img[nextIndex])
-		setSelectedIdex(nextIndex)
-	}
-
-	const nextImage = () => {
-		selectNewImage(selectedIndex, images, false)
-
-	}
-	const backImage = () => {
-		selectNewImage(selectedIndex, images,)
-	}
 
 	useEffect(() => {
 		container.current.scrollIntoView({ block: 'start' });
@@ -58,44 +43,9 @@ const PropertyDetail = () => {
 					justifyContent={"space-around"}
 					overflow={"hidden"}
 					padding={2}
-
-
 				>
 					<Box as='section' display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
-						{/* CONTAINER SLIDER IMAGES AND CONTROLLERS */}
-						<Box as='header' position={"relative"}>
-							<Box>
-								<Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={selectedImage} />
-							</Box>
-							<Box position={"absolute"} top={'0'} width={"100%"} height={"100%"} display={"flex"} alignItems={"center"} justifyContent={"space-between"} padding={2}>
-								<Button
-									width={"55px"}
-									height={"55px"}
-									borderRadius={"full"}
-									outline={"none"}
-									bg={"rgba(0,0,0,0.2)"}
-									_focus={{ bgColor: 'green.300' }}
-									border={"1px solid #000"}
-									onClick={backImage}
-								>
-
-									<ArrowLeft />
-								</Button>
-								<Button
-									width={"55px"}
-									height={"55px"}
-									borderRadius={"full"}
-									outline={"none"}
-									bg={"rgba(0,0,0,0.2)"}
-									border={"1px solid #000"}
-									_focus={{ bgColor: 'green.300' }}
-									onClick={nextImage}
-								>
-									<ArrowRight />
-								</Button>
-							</Box>
-						</Box>
-						{/* CONTAINER INFORMATION OF APARTAMENT */}
+						<Carrousel images={images}  />
 						<Box as='footer' >
 							<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
 								<Box display={"grid"} placeItems={"center"} >
@@ -150,33 +100,7 @@ const PropertyDetail = () => {
 						</Text>
 						<Text fontSize={"26px"} textAlign={"left"} color={"green.300"}>Servicios</Text>
 						{/* CONTAINER GRID SERVICES */}
-						<Grid
-							templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(2, 1fr)" }}
-							gap={6}
-							paddingY={6}
-						>
-							{services.map((service, idx) => (
-								<GridItem
-									width={{ base: "120px", md: "250px" }}
-									key={idx}
-									padding={5}
-									placeItems="center"
-									gap={4}
-									borderRadius={"lg"}
-									display="flex"
-									flexDirection={{ base: "column", md: "row" }}
-									border={"1px solid #ccc"}
-								>
-									<Image
-										boxSize={{ base: "30px", md: "40px" }}
-										src={service.image}
-									/>
-									<Text fontSize={{ base: "16px", md: "18px" }} color={"black.300"} textAlign={"center"} fontWeight={600}>
-										{service.title}
-									</Text>
-								</GridItem>
-							))}
-						</Grid>
+						<ServicesProperty services={services} />
 					</Box>
 				</Box >;
 			</Box>
@@ -184,26 +108,7 @@ const PropertyDetail = () => {
 	</>
 };
 
-const ArrowRight = () => {
-	return (
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-			<line x1="5" y1="12" x2="19" y2="12" />
-			<line x1="15" y1="16" x2="19" y2="12" />
-			<line x1="15" y1="8" x2="19" y2="12" />
-		</svg>
-	)
-}
-const ArrowLeft = () => {
-	return (
-		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="52" height="52" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-			<line x1="5" y1="12" x2="19" y2="12" />
-			<line x1="5" y1="12" x2="11" y2="18" />
-			<line x1="5" y1="12" x2="11" y2="6" />
-		</svg>
-	)
-}
+
 const WhatsAppBtn = () => {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

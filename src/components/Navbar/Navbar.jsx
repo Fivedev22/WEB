@@ -22,7 +22,7 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    scrollY > 160 ? setScroll(true) : setScroll(false) 
+    scrollY > 100 ? setScroll(true) : setScroll(false) 
   }
 
 

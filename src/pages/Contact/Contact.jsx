@@ -18,15 +18,14 @@ const Contact = () => {
 
 	const isError = input === ''
 	return <>
-		<Box id="ubicacion" as="section" height={'100%'}  paddingX={6}>
+		<Box id="ubicacion" as="section" height={'100%'} minHeight={"100vh"}  paddingTop={12}  paddingX={6}>
 			<Box
-				position={'relative'}
-				top='4rem'
-				left={0}
+			
 				maxW="1440px"
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
 				paddingY={12}
+			
 
 			>
 				<Text fontSize={{ base: "26px", md: "32px" }} color={"green.900"} fontFamily="Domine" fontWeight={600} paddingY={6}>

@@ -5,7 +5,7 @@ import { empresa } from '../../data/Home/Home'
 
 const Empresa = () => {
 	return <>
-		<Box id="empresa" as="section" paddingY={12} paddingX={6}>
+		<Box id="empresa" as="section" paddingTop={12} paddingX={6}>
 			<Box maxW="1440px"
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
