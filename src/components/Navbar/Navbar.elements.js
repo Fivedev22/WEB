@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const NavbarContainer = styled.div`
   width: 100%;
@@ -8,13 +8,11 @@ export const NavbarContainer = styled.div`
   left: 0;
   padding: 1rem;
   z-index: 9999;
-  background-color: ${ ({show}) => (show ? "rgba(0,0,0,0.8)" : "transparent") };
+  background-color: ${({ show }) => (show ? "rgba(0,0,0,0.8)" : "transparent")};
 
-
-  @media screen and (max-width: 960px) { 
-    background-color: #48BB78;
+  @media screen and (max-width: 960px) {
+    background-color: #48bb78;
   }
-
 `;
 export const NavbarWrapper = styled.div`
   margin: auto;
@@ -25,7 +23,6 @@ export const NavbarWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
- 
 `;
 export const IconLogo = styled.div`
   display: flex;
@@ -33,15 +30,15 @@ export const IconLogo = styled.div`
   justify-content: flex-start;
   align-items: center;
   font-size: 1.5rem;
-  font-family: 'Poppins';
-  color: ${ ({show}) => (show ? "#FFF" : "#48BB78") };
+  font-family: "Poppins";
+  color: ${({ show }) => (show ? "#FFF" : "#48BB78")};
 
-  &:hover{
+  &:hover {
     color: "#48BB78";
   }
 
-  @media screen and (max-width: 960px) { 
-   color: #fff;
+  @media screen and (max-width: 960px) {
+    color: #fff;
   }
 `;
 export const Menu = styled.ul`
@@ -50,16 +47,18 @@ export const Menu = styled.ul`
   justify-content: center;
   align-items: center;
   list-style: none;
+  color: red;
 
   @media screen and (max-width: 960px) {
     width: 100%;
     height: 90vh;
     position: absolute;
     top: 80px;
-    left: ${ ({click}) => (click ? 0 : "-100%") };
+    left: ${({ click }) => (click ? 0 : "-100%")};
     flex-direction: column;
-    transition: .3s all ease-in;
-    background-color: #48BB78;
+    transition: 0.3s all ease-in;
+    background-color: #48bb78;
+    color: ${({ show }) => (show ? "red" : "blue")};
   }
 `;
 export const MenuItem = styled.a`
@@ -71,9 +70,9 @@ export const MenuItem = styled.a`
   font-size: 1.3rem;
   font-weight: 400;
   text-decoration: none;
-  transition: .3s all ease-in;
+  transition: 0.3s all ease-in;
 
- 
+  color: ${({ show }) => (show ? "red" : "blue")};
 
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -83,12 +82,36 @@ export const MenuItem = styled.a`
 
 export const MenuItemLink = styled.li`
   text-decoration: none;
-  color: #fafafa;
 
-  &:hover{
-    color: #48BB78;
+  ${(props) => {
+    switch (props.$mode) {
+      case true:
+        return css`
+            color: ${({ show }) => (show ? "#fff" : "#27374D")};
+        `;
+      default:
+        return css`
+          color: white;
+        `;
+    }
+  }}
+
+/* ${(props) => {
+    switch (props.show) {
+      case true:
+        return css`
+          color: white;
+        `;
+      default:
+        return css`
+          color: white;
+        `;
+    }
+  }} */
+
+  &:hover {
+    color: #48bb78;
   }
-  
 `;
 
 export const IconLogoMobile = styled.a`

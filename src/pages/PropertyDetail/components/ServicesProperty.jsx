@@ -28,10 +28,10 @@ export default function ServicesProperty({ services }) {
           >
             <Image
               boxSize={{ base: "30px", md: "40px" }}
-              src={service.image}
+              src={service?.image}
             />
             <Text fontSize={{ base: "16px", md: "18px" }} color={"black.300"} textAlign={"center"} fontWeight={600}>
-              {service.title}
+              {service?.title}
             </Text>
           </GridItem>
         ))}

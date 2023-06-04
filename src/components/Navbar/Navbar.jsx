@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
 import { useRef } from "react";
+import { useParams } from 'react-router-dom';
 
 
 import { useState } from "react";
@@ -11,6 +12,8 @@ import { useEffect } from "react";
 const Navbar = () => {
   const [show, setShow] = useState(false)
   const [scroll, setScroll] = useState(false)
+  const [detail, setDetail] = useState(false)
+  const { key } = useParams();
 
   const showNavbar = () => {
     setShow(!show)
@@ -18,17 +21,23 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-  }, [])
+    if(!key){
+      return setDetail(false)
+    }
+
+    setDetail(true)
+
+  }, [detail, scroll])
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    scrollY > 100 ? setScroll(true) : setScroll(false) 
+    scrollY > 100 ? setScroll(true) : setScroll(false)
   }
 
 
   return (
     <NavbarContainer show={scroll}>
-      <NavbarWrapper>
+      <NavbarWrapper show={scroll}>
         <a href="/">
           <IconLogo show={scroll}>Anahi Apartamentos</IconLogo>
         </a>
@@ -38,29 +47,29 @@ const Navbar = () => {
             show ? <CloseBtn toggle={showNavbar} /> : <OpenBtn toggle={showNavbar} />
           }
         </IconLogoMobile>
-        <Menu click={show}>
-          <MenuItem href="/#propiedades" onClick={showNavbar}>
-            <MenuItemLink >
+        <Menu  click={show} show={scroll}>
+          <MenuItem href="/#propiedades" onClick={showNavbar} show={scroll} >
+            <MenuItemLink $mode={detail} show={scroll}  >
               Propiedades
             </MenuItemLink>
           </MenuItem>
           <MenuItem href="/#empresa" onClick={showNavbar}>
-            <MenuItemLink>
+            <MenuItemLink $mode={detail} show={scroll}>
               Nosotros
             </MenuItemLink>
           </MenuItem>
           <MenuItem href="/#servicios" onClick={showNavbar}>
-            <MenuItemLink >
+            <MenuItemLink $mode={detail} show={scroll} >
               Servicios
             </MenuItemLink>
           </MenuItem>
           <MenuItem href="/#reseñas" onClick={showNavbar}>
-            <MenuItemLink >
+            <MenuItemLink $mode={detail} show={scroll}>
               Reseñas
             </MenuItemLink>
           </MenuItem>
           <MenuItem href="/#ubicacion" onClick={showNavbar}>
-            <MenuItemLink>
+            <MenuItemLink $mode={detail} show={scroll}>
               Ubicación
             </MenuItemLink>
           </MenuItem>

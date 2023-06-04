@@ -1,31 +1,48 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Text, Box, Button} from '@chakra-ui/react'
+import { Text, Box, Button } from '@chakra-ui/react'
 // files
 import data from '../../data/db.json'
 import { services } from '../../data/Home/Home';
 // components
 import Carrousel from './components/Carrousel';
 import ServicesProperty from './components/ServicesProperty';
+import SimpleSlider from './components/CarrouselDev';
+import { useSelector } from 'react-redux'
 
 
 const PropertyDetail = () => {
+
 	const { key } = useParams();
-	const { properties } = data
-	const oneProperty = properties.find(
-		(property) => property.ref == String(`${key}`)
+	
+	const [property, setProperty] = useState([])
+
+
+
+	const oneProperty = property.find(
+		(property) => property.reference_number == String(`${key}`)
 	);
 
-	const [images, setImages] = useState(oneProperty.images)
+	const [images, setImages] = useState([])
 	const container = useRef(null)
 
-	const IDproperty = `*REF*:${oneProperty.ref}`
+	const IDproperty = `*REF*:${oneProperty?.reference_number}`
 	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
 
 	useEffect(() => {
-		container.current.scrollIntoView({ block: 'start' });
-	}, [])
+		window.scrollTo(0, 0);
+
+		fetch('http://localhost:3000/property')
+			.then(res => res.json())
+			.then(data => {
+				setProperty(data)
+			})
+
+	
+	}, [key])
+
+
 
 	return <>
 		<Box height="100%" minHeight={"100vh"} position={'relative'} top={'80px'} left={0}>
@@ -34,7 +51,7 @@ const PropertyDetail = () => {
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
 				paddingY={8}
-				ref={container}
+				
 			>
 				<Box
 					width={"100%"}
@@ -60,7 +77,7 @@ const PropertyDetail = () => {
 										<polyline points="16 4 16 6 " />
 									</svg>
 									<Text>
-										{oneProperty.squareMeter}m2
+									{oneProperty?.square_meter}m2
 									</Text>
 								</Box>
 								<Box display={"grid"} placeItems={"center"} >
@@ -72,7 +89,7 @@ const PropertyDetail = () => {
 										<path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
 									</svg>
 									<Text>
-										{oneProperty.roomsNumber}
+									3
 									</Text>
 								</Box>
 							</Box>
@@ -92,7 +109,7 @@ const PropertyDetail = () => {
 					</Box>
 
 					<Box as='section' width={{ base: "100%", sm: "80%" }} padding={6} >
-						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}>{oneProperty.name}
+						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}>{oneProperty?.property_name}
 						</Text>
 
 						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>
