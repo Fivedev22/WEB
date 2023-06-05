@@ -15,6 +15,22 @@ const Propiedades = () => {
 	const propertyState = useSelector((state) => state.property)
 
 	const [property, setProperty] = useState([])
+	// const [image, setImage] = useState([])
+	// const [imagePropery, setImagesProperty] = useState([])
+	// let images = []
+
+	// console.log(image);
+
+
+	// const resultado = property.filter(item1 => {
+	// 	const item2 = image.find(item2 => item2.id === item1.id_property);
+	// 	return item2 !== undefined;
+	// }).map(item1 => {
+	// 	const item2 = image.find(item2 => item2.id === item1.id_property);
+	// 	images = [...images, item2]
+	// 	return { ...item1, images };
+	// });
+	// console.log(resultado);
 
 	
 	const DEPTOS = [
@@ -44,10 +60,22 @@ const Propiedades = () => {
 		fetch('http://localhost:3000/property')
 			.then(res => res.json())
 			.then(data => {
+				console.log(data);
 				setProperty(data)
 				dispatch(updateState(data))
 			})
+
+			// fetch('http://localhost:3000/image')
+			// .then(res => res.json())
+			// .then(data => {
+		
+			// 	setImage(data)
+			// })
 	}, [])
+
+	const getImageUrl = (filename) => {
+    return 'http://localhost:3000/uploads/' + filename
+  }
 
 	return <>
 		<Box id="propiedades" as="section" position={'relative'} top={0} left={0} height={"100%"} minHeight={"100vh"} paddingY={4} display={'grid'} placeContent={'center'}>
@@ -64,9 +92,9 @@ const Propiedades = () => {
 
 						{
 							property.map((dpto) => (
-								<Card width={{ base: "100%", sm: "100%", lg: "100%" }} padding={4}>
+								<Card width={{ base: "100%", sm: "100%", lg: "100%" }} padding={4}>''
 									<Box>
-										<Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src="" alt={dpto?.property_name} />
+										<Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={getImageUrl(dpto.images.slice(0,1).map(f => f.filename))} alt={dpto?.property_name} />
 									</Box>
 									<Box paddingY={0} display={"grid"} >
 										<Box display={"grid"} gap={2} paddingY={6}>

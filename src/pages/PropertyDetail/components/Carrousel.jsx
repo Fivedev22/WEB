@@ -1,8 +1,9 @@
 import React from 'react'
 import { Text, Box, Button, Image, Grid, GridItem, } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useEffect } from 'react';
 
-export default function Carrousel({  images }) {
+const Carrousel = ({ images = localStorage.getItem('anahi.defaultImage') }) => {
 
   const [selectedIndex, setSelectedIdex] = useState(0)
   const [selectedImage, setSelectedImage] = useState(images[0])
@@ -22,11 +23,21 @@ export default function Carrousel({  images }) {
     selectNewImage(selectedIndex, images,)
   }
 
+
+
+
+  const getImageUrl = (filename) => {
+    return 'http://localhost:3000/uploads/' + filename
+  }
+
+
+
+
   return (
     <>
       <Box as='header' position={"relative"}>
         <Box>
-          <Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={selectedImage} />
+          <Image width={{ base: "450px", sm: "850px" }} height={{ base: "250px", sm: "400px" }} objectFit={"cover"} src={getImageUrl(selectedImage)} />
         </Box>
         <Box width={"100%"} height={"100%"} display={'flex'} alignItems={'center'} alignSelf={'center'}>
           <Box
@@ -100,3 +111,6 @@ const ArrowLeft = () => {
     </svg>
   )
 }
+
+
+export default Carrousel;

@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux'
 const PropertyDetail = () => {
 
 	const { key } = useParams();
-	
+
 	const [property, setProperty] = useState([])
 
 
@@ -23,24 +23,26 @@ const PropertyDetail = () => {
 		(property) => property.reference_number == String(`${key}`)
 	);
 
-	const [images, setImages] = useState([])
-	const container = useRef(null)
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		getProperties()
+	}, [key])
 
+	const getProperties = async () => {
+		const data = await fetch('http://localhost:3000/property')
+		const properties = await data.json()
+		let test = properties.map((f)=> f.images)
+		let local = test[0].map((t)=> t.filename)
+		localStorage.setItem('anahi.defaultImage', local[0])
+		setProperty(properties)
+	};
+
+
+	let imgs = oneProperty?.images.map(f => f?.filename);
 	const IDproperty = `*REF*:${oneProperty?.reference_number}`
 	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
 
-	useEffect(() => {
-		window.scrollTo(0, 0);
-
-		fetch('http://localhost:3000/property')
-			.then(res => res.json())
-			.then(data => {
-				setProperty(data)
-			})
-
-	
-	}, [key])
 
 
 
@@ -51,7 +53,7 @@ const PropertyDetail = () => {
 				margin="0 auto"
 				textAlign={{ base: "left", md: "center" }}
 				paddingY={8}
-				
+
 			>
 				<Box
 					width={"100%"}
@@ -62,7 +64,7 @@ const PropertyDetail = () => {
 					padding={2}
 				>
 					<Box as='section' display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
-						<Carrousel images={images}  />
+						<Carrousel images={imgs} />
 						<Box as='footer' >
 							<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
 								<Box display={"grid"} placeItems={"center"} >
@@ -77,7 +79,7 @@ const PropertyDetail = () => {
 										<polyline points="16 4 16 6 " />
 									</svg>
 									<Text>
-									{oneProperty?.square_meter}m2
+										{oneProperty?.square_meter}m2
 									</Text>
 								</Box>
 								<Box display={"grid"} placeItems={"center"} >
@@ -89,7 +91,7 @@ const PropertyDetail = () => {
 										<path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
 									</svg>
 									<Text>
-									3
+										3
 									</Text>
 								</Box>
 							</Box>
