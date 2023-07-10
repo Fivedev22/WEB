@@ -16,8 +16,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/departamento/:id" element={<PropertyDetail />}></Route>
-        </Route>
         <Route path="/sugerencias" element={<Suggestion />}></Route>
+        </Route>
       </Routes>
     </>
   );
