@@ -6,6 +6,8 @@ import { Footer, Navbar } from "./components";
 import Layout from "./components/Layout/Layout.jsx";
 import PropertyDetail from "./pages/PropertyDetail/PropertyDetail.jsx";
 import './App.css'
+import Suggestion from "./pages/Suggestions/Suggestion.jsx";
+
 
 function App() {
   return (
@@ -13,8 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/departamento/:key" element={<PropertyDetail />}></Route>
+          <Route path="/departamento/:id" element={<PropertyDetail />}></Route>
         </Route>
+        <Route path="/sugerencias" element={<Suggestion />}></Route>
       </Routes>
     </>
   );

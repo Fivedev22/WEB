@@ -13,7 +13,7 @@ const Navbar = () => {
   const [show, setShow] = useState(false)
   const [scroll, setScroll] = useState(false)
   const [detail, setDetail] = useState(false)
-  const { key } = useParams();
+  const { id } = useParams();
 
   const showNavbar = () => {
     setShow(!show)
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-    if(!key){
+    if(!id){
       return setDetail(false)
     }
 

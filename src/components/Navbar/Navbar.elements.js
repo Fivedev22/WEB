@@ -8,7 +8,7 @@ export const NavbarContainer = styled.div`
   left: 0;
   padding: 1rem;
   z-index: 9999;
-  background-color: ${({ show }) => (show ? "rgba(0,0,0,0.8)" : "transparent")};
+  background-color: ${({ show }) => (show ? "rgba(0,0,0,0.7)" : "transparent")};
 
   @media screen and (max-width: 960px) {
     background-color: #48bb78;

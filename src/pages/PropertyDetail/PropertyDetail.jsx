@@ -13,33 +13,32 @@ import { useSelector } from 'react-redux'
 
 const PropertyDetail = () => {
 
-	const { key } = useParams();
+	const { id } = useParams();
 
-	const [property, setProperty] = useState([])
+	const [property, setProperty] = useState(null)
+	const [images, setImages] = useState([])
+	const API_URL = 'http://localhost:3000/property'
 
-
-
-	const oneProperty = property.find(
-		(property) => property.reference_number == String(`${key}`)
-	);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		getProperties()
-	}, [key])
+	}, [id])
 
 	const getProperties = async () => {
-		const data = await fetch('http://localhost:3000/property')
-		const properties = await data.json()
-		let test = properties.map((f)=> f.images)
-		let local = test[0].map((t)=> t.filename)
-		localStorage.setItem('anahi.defaultImage', local[0])
-		setProperty(properties)
+		const properties = await fetch(API_URL).then(res => res.json()).then( data => data)
+
+		const detailProperty = properties.find(
+			(property) => property.id_property == String(`${id}`)
+		);
+		let imgs = detailProperty?.images?.map(f => f?.filename);
+		setImages(imgs)
+		setProperty(detailProperty)
 	};
 
 
-	let imgs = oneProperty?.images.map(f => f?.filename);
-	const IDproperty = `*REF*:${oneProperty?.reference_number}`
+	
+	const IDproperty = `*REF*:${property?.reference_number}`
 	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
 
@@ -64,7 +63,7 @@ const PropertyDetail = () => {
 					padding={2}
 				>
 					<Box as='section' display={"flex"} flexDirection={"column"} gap={6} padding={{ base: 0, sm: 6 }}  >
-						<Carrousel images={imgs} />
+						<Carrousel images={images} />
 						<Box as='footer' >
 							<Box display={"flex"} alignItems={"center"} justifyContent={"center"} gap={6} padding={4}>
 								<Box display={"grid"} placeItems={"center"} >
@@ -79,7 +78,7 @@ const PropertyDetail = () => {
 										<polyline points="16 4 16 6 " />
 									</svg>
 									<Text>
-										{oneProperty?.square_meter}m2
+										{property?.square_meter}m2
 									</Text>
 								</Box>
 								<Box display={"grid"} placeItems={"center"} >
@@ -99,7 +98,7 @@ const PropertyDetail = () => {
 							{/* CONTAINER BUTTON WHATSAPP */}
 							<Box as='section' width={"100%"} paddingY={2} >
 
-								<a href={LinkWSP}>
+								<a href={LinkWSP} target='_blank-'>
 									<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
 										<WhatsAppBtn />
 										<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
@@ -111,7 +110,7 @@ const PropertyDetail = () => {
 					</Box>
 
 					<Box as='section' width={{ base: "100%", sm: "80%" }} padding={6} >
-						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}>{oneProperty?.property_name}
+						<Text width={"100%"} fontSize={"4xl"} color={"green.900"}>{property?.property_name}
 						</Text>
 
 						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>

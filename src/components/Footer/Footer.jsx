@@ -23,10 +23,10 @@ const Footer = () => {
           color="white"
           justifyContent="center"
           gap={6}
-          padding={6}
+          padding={4}
         >
           <Box>
-            <Text fontSize={{base:"22px" , md: "32px"}}>Seguinos en nuestras redes!</Text>
+            <Text fontSize={{base:"22px" , md: "28px"}}>Seguinos en nuestras redes!</Text>
           </Box>
           <Box
             display="flex"
@@ -36,8 +36,8 @@ const Footer = () => {
             padding={2}
           >
             <Button
-             width={{base: '65px', md: "85px"}}
-             height={{base: '65px', md: "85px"}}
+             width={{base: '65px', md: "65px"}}
+             height={{base: '65px', md: "65px"}}
               _hover={{ backgroundColor: "#48BB78" }}
               backgroundColor="transparent"
               border="1px solid #fff"
@@ -63,8 +63,8 @@ const Footer = () => {
               </svg>
             </Button>
             <Button
-              width={{base: '65px', md: "85px"}}
-              height={{base: '65px', md: "85px"}}
+              width={{base: '65px', md: "65px"}}
+              height={{base: '65px', md: "65px"}}
               _hover={{ backgroundColor: "#48BB78",  }}
               backgroundColor="transparent"
               border="1px solid #fff"

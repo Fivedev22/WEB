@@ -15,45 +15,8 @@ const Propiedades = () => {
 	const propertyState = useSelector((state) => state.property)
 
 	const [property, setProperty] = useState([])
-	// const [image, setImage] = useState([])
-	// const [imagePropery, setImagesProperty] = useState([])
-	// let images = []
+	const defaultImage = 'https://comunidades.cepal.org/ilpes/sites/default/files/users/pictures/default_0.png'
 
-	// console.log(image);
-
-
-	// const resultado = property.filter(item1 => {
-	// 	const item2 = image.find(item2 => item2.id === item1.id_property);
-	// 	return item2 !== undefined;
-	// }).map(item1 => {
-	// 	const item2 = image.find(item2 => item2.id === item1.id_property);
-	// 	images = [...images, item2]
-	// 	return { ...item1, images };
-	// });
-	// console.log(resultado);
-
-	
-	const DEPTOS = [
-		{
-			image: "https://images.unsplash.com/photo-1596313127813-b9f7c7a3b466?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-			title: "La Soñada",
-			descripton: "Apta para 2/4 personas",
-			surface: "50m2"
-		},
-		{
-			image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-			title: "Algarrobo",
-			descripton: "Apta para 2/4 personas",
-			surface: "50m2"
-		},
-		{
-			image: "https://images.unsplash.com/photo-1497870556705-2ee687d37bba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-			title: "Algarrobo",
-			descripton: "Apta para 2/4 personas",
-			surface: "50m2"
-		}
-	]
-	const { properties } = data
 
 
 	useEffect(() => {
@@ -64,13 +27,6 @@ const Propiedades = () => {
 				setProperty(data)
 				dispatch(updateState(data))
 			})
-
-			// fetch('http://localhost:3000/image')
-			// .then(res => res.json())
-			// .then(data => {
-		
-			// 	setImage(data)
-			// })
 	}, [])
 
 	const getImageUrl = (filename) => {
@@ -92,9 +48,15 @@ const Propiedades = () => {
 
 						{
 							property.map((dpto) => (
-								<Card width={{ base: "100%", sm: "100%", lg: "100%" }} padding={4}>''
+								<Card width={{ base: "100%", sm: "100%", lg: "100%" }} padding={4}>
 									<Box>
-										<Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={getImageUrl(dpto.images.slice(0,1).map(f => f.filename))} alt={dpto?.property_name} />
+										{
+											dpto.images[0]
+												? <Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={getImageUrl(dpto.images.slice(0, 1).map(f => f.filename))} alt={dpto?.property_name} />
+
+												: <Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={defaultImage} />
+
+										}
 									</Box>
 									<Box paddingY={0} display={"grid"} >
 										<Box display={"grid"} gap={2} paddingY={6}>
@@ -112,7 +74,7 @@ const Propiedades = () => {
 											</Box>
 										</Box>
 										<Box>
-											<Link to={`departamento/${dpto?.reference_number}`}>
+											<Link to={`departamento/${dpto?.id_property}`}>
 												<Button width={'full'} bgColor="green.300" color="white">VER MAS</Button>
 											</Link>
 										</Box>
