@@ -6,6 +6,34 @@ import { Provider } from 'react-redux'
 
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import store from "./app/store";
+import { createBrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Home } from "./pages";
+import { RouterProvider } from "react-router-dom";
+import Suggestion from "./pages/Suggestions/Suggestion";
+import Layout from "./components/Layout/Layout";
+import PropertyDetail from "./pages/PropertyDetail/PropertyDetail";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout/>,
+    children: [
+      {
+        path:'/',
+        element: <Home />
+      },
+      {
+        path: "/departamento/:id",
+        element: <PropertyDetail />
+      },
+    ],
+  },
+  {
+    path: "/sugerencias",
+    element: <Suggestion/>
+  },
+]);
 
 const colors = {
   green: {
@@ -29,12 +57,12 @@ const theme = extendTheme({ colors });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+   
       <ChakraProvider theme={theme}>
         <Provider store={store}>
-          <App />
+        <RouterProvider router={router} />
         </Provider>
       </ChakraProvider>
-    </BrowserRouter>
+   
   </React.StrictMode>
 );

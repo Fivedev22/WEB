@@ -12,13 +12,13 @@ import Suggestion from "./pages/Suggestions/Suggestion.jsx";
 function App() {
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/departamento/:id" element={<PropertyDetail />}></Route>
         </Route>
         <Route path="/sugerencias" element={<Suggestion />}></Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 }
