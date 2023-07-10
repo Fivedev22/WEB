@@ -13,14 +13,16 @@ import { RouterProvider } from "react-router-dom";
 import Suggestion from "./pages/Suggestions/Suggestion";
 import Layout from "./components/Layout/Layout";
 import PropertyDetail from "./pages/PropertyDetail/PropertyDetail";
+import ErrorPage from "./pages/Error/error";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path:'/',
+        path: '/',
         element: <Home />
       },
       {
@@ -31,7 +33,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/sugerencias",
-    element: <Suggestion/>
+    element: <Suggestion />
+  },
+  {
+    path: "/test",
+    element: <h2>Test</h2>
   },
 ]);
 
@@ -57,12 +63,12 @@ const theme = extendTheme({ colors });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-   
-      <ChakraProvider theme={theme}>
-        <Provider store={store}>
+
+    <ChakraProvider theme={theme}>
+      <Provider store={store}>
         <RouterProvider router={router} />
-        </Provider>
-      </ChakraProvider>
-   
+      </Provider>
+    </ChakraProvider>
+
   </React.StrictMode>
 );
