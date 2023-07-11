@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
-import { Text, Box, Button, FormHelperText, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react'
+import { Image, Text, Box, Button, FormHelperText, FormControl, FormLabel, Input, Textarea } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
-
+import logo from './assets/logo.png'
 
 
 
@@ -47,31 +47,46 @@ const Suggestion = () => {
 			minHeight={"100vh"}
 			display={'flex'}
 			flexDirection={{ base: 'column', md: 'row' }}
-			
+
 		>
 			<Box
 				width={{ base: '100%', md: '50%' }}
-				display={'grid'}
-				placeContent={'center'}
-				placeItems={'center'}
+				display={'flex'}
+				flexDirection={'column'}
+				alignItems={'center'}
+				// placeContent={'center'}
+				// placeItems={'center'}
 				gap={4}
 				textAlign={'center'}
+				justifyContent={'center'}
 				// padding={4}
-				padding={6}
+				paddingX={6}
 			>
+				<Box paddingX={6}>
+					<Image
+						boxSize='75px'
+						objectFit='contain'
+						src={logo} alt='Dan Abramov'
+					/>
+				</Box>
+				<Box display={'grid'} gap={6}>
+					<Text fontSize={'2xl'} >¡Tus opiniones importan!</Text>
+					<Text fontSize={{ base: 'xl', md: 'md' }}>
+						Tu opinión es fundamental para nosotros. En <b>Anahi Apartamentos</b>, valoramos y apreciamos cada una de tus sugerencias y comentarios, ya sean positivos o negativos. Nos esforzamos por brindar el mejor servicio posible, y tus reseñas nos ayudan a identificar áreas en las que podemos mejorar y a su vez, reconocer los aspectos en los que hemos tenido éxito.
 
-				<Text fontSize={'2xl'} >¡Tus opiniones importan!</Text>
-				<Text fontSize={{ base: 'xl', md: 'md' }}>
-					Tu opinión es fundamental para nosotros. En <b>Anahi Apartamentos</b>, valoramos y apreciamos cada una de tus sugerencias y comentarios, ya sean positivos o negativos. Nos esforzamos por brindar el mejor servicio posible, y tus reseñas nos ayudan a identificar áreas en las que podemos mejorar y a su vez, reconocer los aspectos en los que hemos tenido éxito.
+
+					</Text>
+					<Text fontSize={{ base: 'xl', md: 'md' }}>
+						Si tienes alguna experiencia positiva que desees compartir con nosotros, nos encantaría escucharla. Nos impulsa saber que hemos cumplido tus expectativas y que nuestros esfuerzos están siendo reconocidos.
+					</Text>
+					<Text fontSize={{ base: '2xl', md: 'xl' }} color={'green.500'}>
+						Gracias por tu apoyo.
+					</Text>
+				</Box>
 
 
-				</Text>
-				<Text fontSize={{ base: 'xl', md: 'md' }}>
-					Si tienes alguna experiencia positiva que desees compartir con nosotros, nos encantaría escucharla. Nos impulsa saber que hemos cumplido tus expectativas y que nuestros esfuerzos están siendo reconocidos.
-				</Text>
-				<Text fontSize={{ base: '2xl', md: 'xl' }} color={'green.500'}>
-					Gracias por tu apoyo.
-				</Text>
+
+
 
 			</Box>
 			<Box
@@ -92,12 +107,13 @@ const Suggestion = () => {
 					boxShadow={'md'}
 					borderRadius={'md'}
 					p={4}
-					bg={'#fff'}
+					bg={'#ffffff'}
 				>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<FormControl display={'grid'} gap={2}>
 							<FormLabel>Nombre y Apellido</FormLabel>
 							<Input
+								border={'1px solid #ccc'}
 								type="text"
 								{...register('name', {
 									required: true
@@ -107,14 +123,14 @@ const Suggestion = () => {
 
 							<FormLabel>Correo electrónico</FormLabel>
 							<Input
-
+								border={'1px solid #ccc'}
 								{...register("email", { required: true, pattern: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i })}
 							/>
 							{errors.email?.type === 'required' && <Text color={'red.400'}>Campo obligatorio</Text>}
 							{errors.email?.type === 'pattern' && <Text color={'red.400'}>Formato de email es incorrecto</Text>}
 							<FormLabel>Mensaje</FormLabel>
 							<Textarea
-
+								border={'1px solid #ccc'}
 								{...register('message', {
 									required: true
 								})}
