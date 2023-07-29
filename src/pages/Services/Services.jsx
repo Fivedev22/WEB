@@ -36,10 +36,10 @@ const Services = () => {
 							borderRadius={"lg"}
 						>
 							<Image
-								boxSize={{ base: "50px", md: "80px" }}
+								boxSize={{ base: "50px", md: "60px" }}
 								src={service.image}
 							/>
-							<Text fontSize={{ base: "16px", md: "24px" }} color={"black.300"} fontWeight={600}>
+							<Text fontSize={{ base: "16px", md: "24px" }} color={"black.300"} fontWeight={400}>
 								{service.title}
 							</Text>
 						</GridItem>

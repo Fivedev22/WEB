@@ -15,11 +15,11 @@ const Empresa = () => {
 				{
 					empresa.map((items) => (
 						<Box>
-							<Text fontSize={"32px"} color={"green.900"} fontFamily="Domine" fontWeight={600}>
+							<Text fontSize={"32px"} color={"green.900"} fontFamily="Domine" fontWeight={600} paddingY={8} >
 								{items.title}
 							</Text>
 							<Box display={"flex"} flexDirection={{ base: "column", lg: "row" }} padding={6} gap={4} alignItems={"center"}>
-								<Text fontSize={"22px"}>{items.description}
+								<Text fontSize={"22px"} >{items.description}
 								</Text>
 								<Image borderRadius={"sm"} width={{ base: "100%", md: "450px" }} height={{ base: "250px", md: "450px" }} objectFit={"cover"} src={items.image} />
 							</Box>

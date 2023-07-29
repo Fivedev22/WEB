@@ -25,6 +25,18 @@ export const services: Array<IServices> = [
     image: "https://cdn-icons-png.flaticon.com/512/1414/1414447.png",
     title: "Pileta",
   },
+  {
+    image: "https://cdn-icons-png.flaticon.com/512/260/260003.png",
+    title: "Cochera",
+  },
+  {
+    image: "https://cdn-icons-png.flaticon.com/128/963/963883.png",
+    title: "Cocina",
+  },
+  {
+    image: "https://cdn-icons-png.flaticon.com/128/5604/5604544.png",
+    title: "Accesibilidad",
+  },
 ];
 
 export const opinions: Array<IOpinions> = [
@@ -52,13 +64,13 @@ export const empresa = [
   {
     title: "Nuestra Misión",
     description:
-      "	Bienvenido! Somos una empresa especializada en el alquiler de departamentos de alta calidad. Nuestra misión es proporcionar a nuestros clientes soluciones de vivienda flexibles y sin complicaciones que satisfagan todas sus necesidades. Ofrecemos una amplia variedad de opciones de alojamiento para adaptarnos a las necesidades de diferentes grupos de clientes, desde familias hasta profesionales y viajeros frecuentes.",
+      "¡Bienvenido! Somos una empresa especializada en el alquiler de departamentos de alta calidad. Nuestra misión es proporcionar a nuestros clientes soluciones de vivienda flexibles y sin complicaciones que satisfagan todas sus necesidades. Ofrecemos una amplia variedad de opciones de alojamiento para adaptarnos a diferentes grupos de clientes, desde familias hasta profesionales y viajeros frecuentes.",
       image: 'https://images.unsplash.com/photo-1593526613712-7b4b9a707330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
   },
   {
     title: "Nuestra Historia",
     description:
-      "	Nuestra empresa inició en 2019 como un emprendimiento dedicado al alquiler de departamentos de alta calidad, con el objetivo de ofrecer soluciones de vivienda flexibles y personalizadas a nuestros clientes. Desde entonces, hemos trabajado duro para establecer alianzas estratégicas, mejorar nuestros procesos y tecnologías, y brindar un servicio de atención al cliente excepcional. Hoy en día, nos enorgullece ser una de las principales opciones para aquellos que buscan soluciones de vivienda de calidad en el mercado.",
+      "	Nuestra empresa inició en 2019 como un emprendimiento dedicado al alquiler de departamentos de alta calidad, con el objetivo de ofrecer soluciones de vivienda flexibles y personalizadas a nuestros clientes. Desde entonces, hemos trabajado duro para establecer alianzas estratégicas, mejorar nuestros procesos y tecnologías, y brindar un servicio de atención al cliente excepcional. Hoy en día, nos enorgullece ser una de las principales opciones para aquellos que buscan soluciones de alojamiento de calidad en el mercado.",
       image: 'https://images.unsplash.com/photo-1551845728-6820a30c64e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
   },
 ];

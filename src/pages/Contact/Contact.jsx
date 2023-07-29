@@ -29,7 +29,7 @@ const Contact = () => {
 
 			>
 				<Text fontSize={{ base: "26px", md: "32px" }} color={"green.900"} fontFamily="Domine" fontWeight={600} paddingY={6}>
-					¿Donde estamos?
+					¿Dónde estamos?
 				</Text>
 				<Box display={"flex"} flexDirection={{ base: "column", md: "row" }} justifyContent={"space-between"} gap={8} paddingY={8}>
 					<Box width={{ base: "100%", md: "550px" }}>
@@ -41,13 +41,13 @@ const Contact = () => {
 
 					<Box width={{ base: "100%", md: "650px" }} display={"flex"} flexDirection={"column"} justifyContent={"space-around"} gap={6}>
 						<Box>
-							<Text fontSize={"26px"} paddingY={6}>¿Como Llegar?</Text>
+							<Text fontSize={"26px"} paddingY={6}>¿Cómo llegar?</Text>
 							<Text fontSize={"20px"}>
 								Si estás planeando un viaje a Villa Parque Siquiman y necesitas saber cómo llegar, te recomendamos tomar la Ruta Nacional 38 hacia el norte desde la ciudad de Córdoba. Luego, desvíate a la derecha en la Ruta Provincial E-55 y continúa por esta carretera hasta llegar a tu destino. Si te encuentras en otra ubicación, utiliza un mapa o una aplicación de GPS para encontrar la ruta más adecuada. Además, no dudes en buscar información adicional en línea o en alguna oficina de turismo en la zona. ¡Te esperamos!
 							</Text>
 						</Box>
 						<Box>
-							<Text fontSize={"26px"} paddingY={6}>Mas info y reservas</Text>
+							<Text fontSize={"26px"} paddingY={6}>Más info y reservas</Text>
 							<Text fontSize={"22px"}>
 								+54 9 3541 127523 <br /> anahiapartamentos@gmail.com
 							</Text>

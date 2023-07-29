@@ -5,35 +5,59 @@ import { Image, Text, Box, Button, FormHelperText, FormControl, FormLabel, Input
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import logo from './assets/logo.png'
+import axios from 'axios';
+import './Suggestion.css'
 
 
 
 
 const Suggestion = () => {
+	const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+	const { name, email, message } = formData;
 	const { register, formState: { errors }, handleSubmit } = useForm()
 	const navigate = useNavigate()
 
 
+	const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
 
 	const onSubmit = (data) => {
 
-		const Toast = Swal.mixin({
-			toast: true,
-			position: 'top-end',
-			showConfirmButton: false,
-			timer: 3000,
-			timerProgressBar: true,
-			didOpen: (toast) => {
-				toast.addEventListener('mouseenter', Swal.stopTimer)
-				toast.addEventListener('mouseleave', Swal.resumeTimer)
-			}
-		})
+		axios.post('http://localhost:3000/user/sendEmail', {name, email, message })
+			.then((response) => {
 
-		Toast.fire({
-			icon: 'success',
-			title: 'Gracias por tu comentario!'
-		})
+				const Toast = Swal.mixin({
+					toast: true,
+					position: 'top-end',
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener('mouseenter', Swal.stopTimer)
+						toast.addEventListener('mouseleave', Swal.resumeTimer)
+					}
+				})
+		
+				Toast.fire({
+					icon: 'success',
+					title: 'Gracias por tu comentario!'
+				})
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+
+		
 
 		setTimeout(() => {
 			navigate('/')
@@ -73,8 +97,6 @@ const Suggestion = () => {
 					<Text fontSize={'2xl'} >¡Tus opiniones importan!</Text>
 					<Text fontSize={{ base: 'xl', md: 'md' }}>
 						Tu opinión es fundamental para nosotros. En <b>Anahi Apartamentos</b>, valoramos y apreciamos cada una de tus sugerencias y comentarios, ya sean positivos o negativos. Nos esforzamos por brindar el mejor servicio posible, y tus reseñas nos ayudan a identificar áreas en las que podemos mejorar y a su vez, reconocer los aspectos en los que hemos tenido éxito.
-
-
 					</Text>
 					<Text fontSize={{ base: 'xl', md: 'md' }}>
 						Si tienes alguna experiencia positiva que desees compartir con nosotros, nos encantaría escucharla. Nos impulsa saber que hemos cumplido tus expectativas y que nuestros esfuerzos están siendo reconocidos.
@@ -83,12 +105,9 @@ const Suggestion = () => {
 						Gracias por tu apoyo.
 					</Text>
 				</Box>
-
-
-
-
-
 			</Box>
+
+			{/* FORM */}
 			<Box
 				width={{ base: '100%', md: '50%' }}
 				display={'flex'}
@@ -109,34 +128,35 @@ const Suggestion = () => {
 					p={4}
 					bg={'#ffffff'}
 				>
-					<form onSubmit={handleSubmit(onSubmit)}>
+					<form  className='form' onSubmit={handleSubmit(onSubmit)}>
 						<FormControl display={'grid'} gap={2}>
 							<FormLabel>Nombre y Apellido</FormLabel>
-							<Input
-								border={'1px solid #ccc'}
-								type="text"
-								{...register('name', {
-									required: true
-								})}
+							<input 
+								type="text" 
+								name='name'
+								onChange={handleInputChange} 
+								placeholder='ex: John Wick' 
+								required
 							/>
-							{errors.name?.type === 'required' && <Text color={'red.400'}>Campo obligatorio</Text>}
-
 							<FormLabel>Correo electrónico</FormLabel>
-							<Input
-								border={'1px solid #ccc'}
-								{...register("email", { required: true, pattern: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i })}
+							<input 
+								type="email" 
+								name='email'
+								onChange={handleInputChange}
+								placeholder='ex: jhonwick@gmail.com' 
+								required
 							/>
-							{errors.email?.type === 'required' && <Text color={'red.400'}>Campo obligatorio</Text>}
-							{errors.email?.type === 'pattern' && <Text color={'red.400'}>Formato de email es incorrecto</Text>}
 							<FormLabel>Mensaje</FormLabel>
-							<Textarea
-								border={'1px solid #ccc'}
-								{...register('message', {
-									required: true
-								})}
-								resize={'none'}
-							/>
-							{errors.message?.type === 'required' && <Text color={'red.400'}>Campo obligatorio</Text>}
+							<textarea 
+							id="" 
+							cols="20" 
+							rows="6"
+							onChange={handleInputChange}
+							name="message" 
+							placeholder='ex: increíble lugar!' 
+							required
+							>
+							</textarea>
 							<Button type="submit" colorScheme='green' _hover={{ bg: "green.300" }}>Enviar</Button>
 						</FormControl>
 					</form>

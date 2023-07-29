@@ -26,7 +26,7 @@ const Footer = () => {
           padding={4}
         >
           <Box>
-            <Text fontSize={{base:"22px" , md: "28px"}}>Seguinos en nuestras redes!</Text>
+            <Text fontSize={{base:"22px" , md: "28px"}}>¡Seguinos en nuestras redes!</Text>
           </Box>
           <Box
             display="flex"

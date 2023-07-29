@@ -8,7 +8,7 @@ const Plans = () => {
 	const PlansArray = [
 		{
 			"title": "Alquileres por temporada",
-			"text": "Desde Diciembre hasta Marzo",
+			"text": "Consultar por disponibilidad",
 			"image": "https://images.unsplash.com/photo-1642489216436-4c5075b34d53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=419&q=80"
 		},
 		{

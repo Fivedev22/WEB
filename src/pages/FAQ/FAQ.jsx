@@ -12,19 +12,18 @@ const FAQ = () => {
 	const Questions = [
 		{
 			question: "	¿Como hacer una reserva?",
-			answer: "Si tuviéramos disponibilidad para reservar deberás abonar al menos el 30% del valor total de las noches que te alojes en la posada."
+			answer: "Si tuviéramos disponibilidad para reservar deberás abonar al menos el 30% del valor total de las noches que te alojes como seña para poder concretar la reserva."
 		},
 		{
 			question: "Formas de pago",
-			answer: ` Formas de pago:
+			answer: ` Formas de pago: 
 			→ Efectivo
 			→ Transferencia bancaria
 			→ Mercado pago (con dinero en cuenta no tiene recargo)
 			→ Tarjeta de crédito a través de Mercado Pago (consultar recargos)`
 		}, {
 			question: "Mascotas",
-			answer: `Admitimos mascotas pequeñas y medianas, con la responsabilidad de sus dueños ante cualquier daño o ruptura. Tienen un espacio grande para disfrutar.
-			→ Solo mascotas pequeñas pueden dormir en las habitaciones.`
+			answer: `Admitimos mascotas pequeñas y medianas, con la responsabilidad de sus dueños ante cualquier daño o ruptura. Tienen un espacio grande para disfrutar. Solo mascotas pequeñas pueden dormir en las habitaciones.`
 		},
 		{
 			question: "Política de Cancelación",
