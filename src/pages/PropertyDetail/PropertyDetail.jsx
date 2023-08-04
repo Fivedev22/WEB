@@ -37,9 +37,9 @@ const PropertyDetail = () => {
 	};
 
 
-	
+
 	const IDproperty = `*REF*:${property?.reference_number}`
-	const LinkWSP = `https://api.whatsapp.com/send?phone=3516538808&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
+	const LinkWSP = `https://api.whatsapp.com/send?phone=3541236733&text=Hola!%20estoy%20interesado%20en%20la%20propiedad%20${IDproperty}%20para%20hacer%20una%20reserva`
 
 
 

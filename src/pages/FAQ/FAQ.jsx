@@ -11,8 +11,8 @@ const FAQ = () => {
 
 	const Questions = [
 		{
-			question: "	¿Como hacer una reserva?",
-			answer: "Si tuviéramos disponibilidad para reservar deberás abonar al menos el 30% del valor total de las noches que te alojes como seña para poder concretar la reserva."
+			question: "¿Como hacer una reserva?",
+			answer: "Para reservar deberás escribinos por WhatsApp, 🟢+54 9 3541 236733. Si tuviéramos disponibilidad para reservar deberás abonar al menos el 30% del valor total de las noches que te alojes como seña para poder concretar la reserva."
 		},
 		{
 			question: "Formas de pago",
@@ -28,6 +28,14 @@ const FAQ = () => {
 		{
 			question: "Política de Cancelación",
 			answer: `Las cancelaciones de reservas se pueden realizar dentro de las 72 horas antes del Check-In, caso contrario se pierde la seña de la reserva. `
+		},
+		{
+			question: "Horario de check-in/out",
+			answer: `Horario de Check-In:
+			Desde las 14:00 pm a 00hs.
+			
+			Horario de Check-Out:
+			Hasta las 11:00 am. `
 		}
 	]
 

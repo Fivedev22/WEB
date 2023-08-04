@@ -49,7 +49,7 @@ const Contact = () => {
 						<Box>
 							<Text fontSize={"26px"} paddingY={6}>Más info y reservas</Text>
 							<Text fontSize={"22px"}>
-								+54 9 3541 127523 <br /> anahiapartamentos@gmail.com
+								+54 9 3541 236733 <br /> anahiapartamentos@gmail.com
 							</Text>
 						</Box>
 

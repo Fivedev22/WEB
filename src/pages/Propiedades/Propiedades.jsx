@@ -4,8 +4,9 @@ import data from '../../data/db.json'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { updateState } from '../../features/properties/propertySlices';
+import axios from 'axios';
 
 
 const Propiedades = () => {
@@ -20,6 +21,11 @@ const Propiedades = () => {
 
 
 	useEffect(() => {
+		// axios.get('http://localhost:3000/property').then(res => {
+		// 	console.log(res);
+		// 	setProperty(res.data)
+		// 	dispatch(updateState(res.data))
+		// })
 		fetch('http://localhost:3000/property')
 			.then(res => res.json())
 			.then(data => {
@@ -30,8 +36,8 @@ const Propiedades = () => {
 	}, [])
 
 	const getImageUrl = (filename) => {
-    return 'http://localhost:3000/uploads/' + filename
-  }
+		return 'http://localhost:3000/uploads/' + filename
+	}
 
 	return <>
 		<Box id="propiedades" as="section" position={'relative'} top={0} left={0} height={"100%"} minHeight={"100vh"} paddingY={4} display={'grid'} placeContent={'center'}>
@@ -52,7 +58,7 @@ const Propiedades = () => {
 									<Box>
 										{
 											dpto.images[0]
-												? <Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={getImageUrl(dpto.images.slice(0, 1).map(f => f.filename))} alt={dpto?.property_name} />
+												? <Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={getImageUrl(dpto.images[0]?.filename)} alt={dpto?.property_name} />
 
 												: <Image width={"100%"} objectFit={"cover"} height={"250px"} borderRadius={'2xl'} src={defaultImage} />
 

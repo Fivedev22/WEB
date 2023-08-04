@@ -8,19 +8,19 @@ const Plans = () => {
 	const PlansArray = [
 		{
 			"title": "Alquileres por temporada",
-			"text": "Consultar por disponibilidad",
-			"image": "https://images.unsplash.com/photo-1642489216436-4c5075b34d53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=419&q=80"
+		
+			"image": "https://static.tokkobroker.com/pictures/100869109573421096691403352410436248331866738365882689953219675635361980763786.jpg"
 		},
 		{
 			"title": "Alquileres Mensual",
-			"text": "Consultar por disponibilidad",
-			"image": "https://images.unsplash.com/photo-1506784365847-bbad939e9335?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=868&q=80"
+		
+			"image": "https://static.tokkobroker.com/pictures/36809659805436191465254680047166702744391374224974230360077623954020430831870.jpg"
 
 		},
 		{
 			"title": "Alquileres Anual",
-			"text": "Consultar por disponibilidad",
-			"image": "https://images.unsplash.com/photo-1611302457661-d24c21494f2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=653&q=80"
+		
+			"image": "https://static1.sosiva451.com/34162821/ec5badd5-6431-43c2-a089-559204115f8c_u_small.jpg"
 			
 		},
 	]
