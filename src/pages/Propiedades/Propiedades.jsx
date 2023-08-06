@@ -55,6 +55,7 @@ const Propiedades = () => {
 						{
 							property.map((dpto) => (
 								<Card width={{ base: "100%", sm: "100%", lg: "100%" }} padding={4}>
+									<Link to={`departamento/${dpto?.id_property}`}>
 									<Box>
 										{
 											dpto.images[0]
@@ -64,6 +65,7 @@ const Propiedades = () => {
 
 										}
 									</Box>
+									</Link>
 									<Box paddingY={0} display={"grid"} >
 										<Box display={"grid"} gap={2} paddingY={6}>
 											<Text fontSize="24px" textTransform={'capitalize'} fontWeight={600} fontFamily="Poppins" textAlign={"left"}>{dpto?.property_name}</Text>
@@ -81,7 +83,7 @@ const Propiedades = () => {
 										</Box>
 										<Box>
 											<Link to={`departamento/${dpto?.id_property}`}>
-												<Button width={'full'} bgColor="green.300" color="white">VER MAS</Button>
+												<Button width={'full'} bgColor={'green.300'} _hover={{bgColor:"green.500"}} color="white">VER MAS</Button>
 											</Link>
 										</Box>
 									</Box>

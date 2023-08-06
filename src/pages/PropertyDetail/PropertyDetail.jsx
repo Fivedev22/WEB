@@ -99,7 +99,7 @@ const PropertyDetail = () => {
 							<Box as='section' width={"100%"} paddingY={2} >
 
 								<a href={LinkWSP} target='_blank-'>
-									<Button width={"80%"} colorScheme='green' display={'flex'} gap={6} margin={'0 auto'} paddingY={6} _hover={{ bgColor: 'green.900' }}>
+									<Button width={"80%"} bgColor={'green.300'} _hover={{bgColor:"green.500"}} display={'flex'} gap={6} margin={'0 auto'} paddingY={6} color={'white'}>
 										<WhatsAppBtn />
 										<Text fontSize={'18px'} fontWeight={300}>Consultar disponibilidad</Text>
 									</Button>
