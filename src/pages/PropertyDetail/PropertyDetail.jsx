@@ -114,7 +114,7 @@ const PropertyDetail = () => {
 						</Text>
 
 						<Text textAlign={"left"} paddingY={6} fontSize={"2xl"}>
-							Níspero cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
+							{property?.property_name} cuenta con un amplio espacio de cocina para preparar las delicias que quieras (además de heladera y cafetera para cápsulas) y un living con suntuosos sillones para relajarse en cualquier momento. Las habitaciones se encuentran en el piso superior, con una amplitud que brinda la comodidad deseada para descansar en la estadía. Además de WiFi y televisión por cable, se puede disfrutar de amenities premium con vista a las sierras y desayuno incluido para saborear las delicias serranas
 						</Text>
 						<Text fontSize={"26px"} textAlign={"left"} color={"green.300"}>Servicios</Text>
 						{/* CONTAINER GRID SERVICES */}
